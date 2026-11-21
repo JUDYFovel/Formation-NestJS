@@ -23,6 +23,24 @@ describe('AppController (e2e)', () => {
       .expect('Hello World!');
   });
 
+  it('/tasks (POST) returns the created task', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/tasks')
+      .send({
+        title: 'Learn Nestjs',
+        description: 'Complete the NestJS course',
+        status: 'OPEN',
+      })
+      .expect(201);
+
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      title: 'Learn Nestjs',
+      description: 'Complete the NestJS course',
+      status: 'OPEN',
+    });
+  });
+
   afterEach(async () => {
     await app.close();
   });

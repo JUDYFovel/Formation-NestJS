@@ -1,0 +1,3 @@
+nest g module tasks
+nest g controller tasks tasks --no-spec --flat  //creation controller
+nest g service tasks tasks --no-spec --flat   //creation service 

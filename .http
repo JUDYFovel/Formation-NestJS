@@ -1,1 +1,44 @@
-http://localhost:3000
+@baseUrl = http://localhost:3000
+
+@contentType: application/json
+
+ http://{{baseUrl}}
+
+
+ GET {{baseUrl}}/tasks 
+
+
+ GET {{baseUrl}}/tasks/123
+
+
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+    "title": "Learn Nestjs 3",
+    "description": "Complete the NestJS course",
+    "status": "OPEN"
+}
+
+
+//Validation
+
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+    "title": "",
+    "description": "Complete the NestJS course",
+    "status": "XXX"
+}
+
+
+// b2132c5b-c1c0-47af-a70f-1171d51c8856
+
+PATCH {{baseUrl}}/tasks/75a63b1f-0f69-49e1-bc1c-9fe5de5d9cf5/status
+Content-Type: application/json
+
+{
+    
+    "status": "OPEN"
+}
